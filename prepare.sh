@@ -39,4 +39,5 @@ for item in $(find -type l); do
 done
 
 rm -rf $BUILD/ffmpeg-lambda.zip
-zip -9 -r $BUILD/ffmpeg-lambda.zip $PREP
+cd $PREP
+zip -9 -r $BUILD/ffmpeg-lambda.zip *
