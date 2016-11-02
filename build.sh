@@ -2,9 +2,14 @@
 
 set -e
 
-yum groupinstall -y 'development tools'
-yum install -y mercurial gperf libxml2-devel libxslt-devel docbook2X python27-pip python27-devel
-pip install lxml six
+SUDO=''
+if [[ $(id -u) -ne 0 ]] ; then
+    SUDO='sudo'
+fi
+
+$SUDO yum groupinstall -y 'development tools'
+$SUDO yum install -y mercurial gperf libxml2-devel libxslt-devel docbook2X python27-pip python27-devel
+$SUDO pip install lxml six
 
 BUILD=~/build
 PREFIX=$BUILD/prefix
