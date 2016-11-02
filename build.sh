@@ -70,7 +70,7 @@ cd -
 
 hg clone https://bitbucket.org/multicoreware/x265
 cd x265/build
-cmake -DCMAKE_INSTALL_PREFIX:PATH=$PREFIX -DCMAKE_ASM_FLAGS='-DARCH_X86_64=1 -f elf32' ../source
+cmake -DCMAKE_INSTALL_PREFIX:PATH=$PREFIX -DCMAKE_ASM_YASM_FLAGS='-DARCH_X86_64=1 -f elf64' ../source
 make
 make install
 cd -
