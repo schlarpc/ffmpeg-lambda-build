@@ -2,4 +2,4 @@ sudo: required
 language: generic
 services:
   - docker
-script: travis-build.sh
+script: ./travis-build.sh
