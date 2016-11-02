@@ -4,7 +4,7 @@ set -e
 
 yum groupinstall -y 'development tools'
 yum install -y mercurial gperf libxml2-devel libxslt-devel docbook2X python27-pip python27-devel
-pip install lxml
+pip install lxml six
 
 BUILD=~/build
 PREFIX=$BUILD/prefix
