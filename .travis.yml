@@ -2,4 +2,10 @@ sudo: required
 language: generic
 services:
   - docker
-script: ./travis-build.sh
+install:
+  - sudo apt-get update
+  - sudo apt-get -y install python3-pip
+  - sudo pip3 install awscli
+script:
+  - $(aws ecr get-login --region us-west-2 --registry-ids 137112412989)
+  - docker pull 137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest
