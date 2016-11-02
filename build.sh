@@ -2,6 +2,8 @@
 
 set -e
 
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 SUDO=''
 if [[ $(id -u) -ne 0 ]] ; then
     SUDO='sudo'
@@ -321,3 +323,6 @@ cd patchelf
 make
 make install
 cd -
+
+echo "Build complete, running prepare script"
+$SCRIPT_DIR/prepare.sh
