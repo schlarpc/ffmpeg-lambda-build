@@ -9,4 +9,4 @@ install:
   - $(aws ecr get-login --region us-west-2 --registry-ids 137112412989)
   - docker pull 137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest
 script:
-  - docker run -it -v $(pwd):/build 137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest /build/build.sh
+  - docker run -it -v $(pwd):/build 137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest /bin/bash -c '/build/build.sh && /build/prepare.sh'
