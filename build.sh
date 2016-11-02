@@ -2,9 +2,16 @@
 
 set -e
 
-sudo yum groupinstall -y 'development tools'
-sudo yum install -y mercurial gperf libxml2-devel libxslt-devel docbook2X
-sudo pip install lxml
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+SUDO=''
+if [[ $(id -u) -ne 0 ]] ; then
+    SUDO='sudo'
+fi
+
+$SUDO yum groupinstall -y 'development tools'
+$SUDO yum install -y mercurial gperf libxml2-devel libxslt-devel docbook2X python27-pip python27-devel
+$SUDO pip install lxml six
 
 BUILD=~/build
 PREFIX=$BUILD/prefix
@@ -70,7 +77,7 @@ cd -
 
 hg clone https://bitbucket.org/multicoreware/x265
 cd x265/build
-cmake -DCMAKE_INSTALL_PREFIX:PATH=$PREFIX ../source
+cmake -DCMAKE_INSTALL_PREFIX:PATH=$PREFIX -DCMAKE_ASM_YASM_FLAGS='-DARCH_X86_64=1 -f elf64' ../source
 make
 make install
 cd -
@@ -316,3 +323,6 @@ cd patchelf
 make
 make install
 cd -
+
+echo "Build complete, running prepare script"
+$SCRIPT_DIR/prepare.sh
