@@ -2,9 +2,9 @@
 
 set -e
 
-sudo yum groupinstall -y 'development tools'
-sudo yum install -y mercurial gperf libxml2-devel libxslt-devel docbook2X
-sudo pip install lxml
+yum groupinstall -y 'development tools'
+yum install -y mercurial gperf libxml2-devel libxslt-devel docbook2X
+pip install lxml
 
 BUILD=~/build
 PREFIX=$BUILD/prefix
