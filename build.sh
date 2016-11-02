@@ -3,7 +3,7 @@
 set -e
 
 yum groupinstall -y 'development tools'
-yum install -y mercurial gperf libxml2-devel libxslt-devel docbook2X
+yum install -y mercurial gperf libxml2-devel libxslt-devel docbook2X python27-pip
 pip install lxml
 
 BUILD=~/build
