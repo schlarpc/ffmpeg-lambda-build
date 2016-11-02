@@ -2,9 +2,8 @@ sudo: required
 language: generic
 services:
   - docker
-install:
+script:
   - sudo apt-get update
   - sudo apt-get -y install python-pip
   - sudo pip install awscli
-build:
   - aws ecr get-login --region us-west-2 --registry-ids 137112412989
