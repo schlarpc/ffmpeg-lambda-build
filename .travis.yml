@@ -9,4 +9,7 @@ install:
   - $(aws ecr get-login --region us-west-2 --registry-ids 137112412989)
   - docker pull 137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest
 script:
-  - docker run -it -v $(pwd):/build 137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest /build/build.sh
+  - docker run -it --name ffmpeg_lambda -v $(pwd):/build 137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest /build/build.sh
+after_script:
+  - docker cp ffmpeg_lambda:/root/build/ffmpeg-lambda.zip ffmpeg-lambda.zip
+  - aws s3 cp ffmpeg-lambda.zip s3://schlarpc-build-artifacts/ffmpeg-lambda.zip
