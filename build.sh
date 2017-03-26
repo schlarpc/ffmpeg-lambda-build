@@ -99,7 +99,7 @@ MAKEFLAGS='' make
 make install
 cd -
 
-git clone git://git.code.sf.net/p/expat/code_git expat
+git clone git@github.com:tiran/expat.git
 cd expat/expat
 ln -s `which db2x_docbook2man` $PREFIX/bin/docbook2x-man
 ./buildconf.sh
