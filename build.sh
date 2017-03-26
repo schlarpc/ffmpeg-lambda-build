@@ -100,7 +100,7 @@ make install
 cd -
 
 git clone git@github.com:libexpat/libexpat.git
-cd expat/expat
+cd libexpat/expat
 ln -s `which db2x_docbook2man` $PREFIX/bin/docbook2x-man
 ./buildconf.sh
 ./configure --prefix=$PREFIX
