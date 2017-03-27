@@ -12,8 +12,13 @@ cp -r $PREFIX $PREP
 
 cd $PREP
 chmod -R 755 *
-mv lib64/* lib/
-mv sbin/* bin/
+
+cp -rl lib64/* lib/
+rm -rf lib64
+
+cp -rl sbin/* bin/
+rm -rf sbin
+
 mkdir keepbin
 mv bin/ffmpeg bin/ffprobe bin/rtmpdump bin/mplayer keepbin/
 rm -rf etc include var misc man lib64 doc share private openssl.cnf certs sbin bin \
