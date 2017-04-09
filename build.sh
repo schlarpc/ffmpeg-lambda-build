@@ -219,14 +219,6 @@ make
 make install
 cd -
 
-git clone --depth=1 git://github.com/jiixyj/libebur128
-mkdir -p libebur128/build
-cd libebur128/build
-cmake -DCMAKE_INSTALL_PREFIX:PATH=$PREFIX ..
-make
-make install
-cd -
-
 git clone --depth=1 git://git.code.sf.net/p/opencore-amr/vo-amrwbenc
 cd vo-amrwbenc
 libtoolize --force
@@ -295,7 +287,7 @@ cd ffmpeg
 	--prefix=$PREFIX --enable-gpl --enable-version3 --enable-nonfree \
 	--enable-shared --extra-cflags="-I$PREFIX/include" \
 	--extra-ldflags="-L$PREFIX/lib -L$PREFIX/lib64" \
-	--enable-libebur128 --enable-libmp3lame --enable-frei0r \
+	--enable-libmp3lame --enable-frei0r \
 	--enable-libopencore-amrwb --enable-libopencore-amrnb \
 	--enable-libsoxr --enable-libvpx --enable-libwebp \
 	--enable-libx264 --enable-libx265 --enable-libzimg \
