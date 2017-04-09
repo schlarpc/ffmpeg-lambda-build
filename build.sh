@@ -175,7 +175,7 @@ cd -
 git clone --depth=1 -b openjpeg-1.5 git://github.com/uclouvain/openjpeg
 mkdir -p openjpeg/build
 cd openjpeg/build
-cmake -DCMAKE_INSTALL_PREFIX:PATH=$PREFIX ..
+cmake -DCMAKE_INSTALL_PREFIX:PATH=$PREFIX -DCMAKE_PREFIX_PATH:PATH=$PREFIX ..
 make
 make install
 cd -
