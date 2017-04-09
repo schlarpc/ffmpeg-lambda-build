@@ -99,7 +99,7 @@ MAKEFLAGS='' make
 make install
 cd -
 
-git clone git@github.com:libexpat/libexpat.git
+git clone --depth=1 git://github.com/libexpat/libexpat
 cd libexpat/expat
 ln -s `which db2x_docbook2man` $PREFIX/bin/docbook2x-man
 ./buildconf.sh
