@@ -296,6 +296,59 @@ cd ffmpeg
 	--enable-libspeex --enable-libvidstab --enable-libvo-amrwbenc \
     --enable-libopenjpeg --enable-libfribidi --enable-libfreetype \
     --enable-libfontconfig --enable-libass --enable-libcaca
+# Unenabled libraries/features as of April 9 2017:
+# Many of these are encoding targets and data sources, not decoding support.
+# The libraries that *are* enabled should represent most output formats in common use.
+# Of course, patches are welcome to increase library support here :)
+#
+# avisynth
+# chromaprint
+# gcrypt (unneeded due to librtmp)
+# gmp (unneeded due to librtmp)
+# gnutls (unneeded due to openssl)
+# jni
+# ladspa
+# libbluray (not useful in Lambda)
+# libbs2b
+# libcelt
+# libcdio (not useful in Lambda)
+# libdc1394 (not useful in Lambda)
+# libfdk-aac
+# libflite
+# libgme
+# libgsm
+# libiec61883
+# libilbc
+# libkvazaar (using libx265)
+# libmodplug
+# libnut
+# libopencv
+# libopenh264 (using libx264)
+# libopenmpt
+# libpulse (not useful in Lambda)
+# librubberband
+# libschroedinger
+# libshine
+# libsmbclient
+# libsnappy
+# libssh
+# libtesseract
+# libtwolame
+# libv4l2 (not useful in Lambda)
+# libwavpack
+# libxavs
+# libxcb
+# libxcb-shm
+# libxcb-xfixes
+# libxcb-shape
+# libzmq
+# libzvbi
+# decklink (not useful in Lambda)
+# mediacodec (Android only)
+# netcdf
+# openal
+# opencl
+# opengl
 make
 make install
 cd -
