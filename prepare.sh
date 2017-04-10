@@ -13,11 +13,15 @@ cp -r $PREFIX $PREP
 cd $PREP
 chmod -R 755 *
 
-cp -rl lib64/* lib/
-rm -rf lib64
+if [ -d "lib64" ]; then
+    cp -rl lib64/* lib/
+    rm -rf lib64
+fi
 
-cp -rl sbin/* bin/
-rm -rf sbin
+if [ -d "sbin" ]; then
+    cp -rl sbin/* bin/
+    rm -rf sbin
+fi
 
 mkdir keepbin
 mv bin/ffmpeg bin/ffprobe bin/rtmpdump bin/mplayer keepbin/
